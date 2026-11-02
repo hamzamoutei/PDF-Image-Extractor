@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-image-extractor"
+version = "1.0.0"
+description = "A small command-line tool to extract embedded images from PDF files."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["PyMuPDF>=1.23"]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+pdf-image-extractor = "pdf_image_extractor.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
